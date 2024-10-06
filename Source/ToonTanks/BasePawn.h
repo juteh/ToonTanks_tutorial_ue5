@@ -14,17 +14,6 @@ class TOONTANKS_API ABasePawn : public APawn
 public:
 	// Sets default values for this pawn's properties
 	ABasePawn();
-	// nicht sichtbar in blueprints aber von erstellten Instanz
-	UPROPERTY(VisibleInstanceOnly)
-	int32 VisibleInstanceOnlyInt = 11;
-	UPROPERTY(VisibleDefaultsOnly)
-	int32 VisibleDefaultsOnlyInt = 5;
-	UPROPERTY(EditDefaultsOnly)
-	int32 EditDefaultsOnlyInt = 9;
-	UPROPERTY(EditInstanceOnly)
-	int32 EditInstanceOnlyInt = 14;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float Speed = 400.f;
 
 protected:
 	// Called when the game starts or when spawned
@@ -40,17 +29,8 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	USceneComponent* ProjectileSpawnPoint;
 
-	// meta erlaubt zu  zugriff private veriablen in blueprints
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Awesome Variable", meta = (AllowPrivateAccess = "true"))
-	int32 VisibleAnywhereInt = 12;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Awesome Variable", meta = (AllowPrivateAccess = "true"))
-	int EditAnywhereInt = 22;
-
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 };
